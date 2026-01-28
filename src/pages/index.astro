@@ -1,11 +1,29 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="vzamariola · Portfolio" desc="Projetos e links">
+  <h1>vz.notes</h1>
+  <p class="small">data / machine learning / urbanism / street photography</p>
+
+  <div class="kv">
+    <span class="badge">Python</span>
+    <span class="badge">SQL</span>
+    <span class="badge">QGIS</span>
+    <span class="badge">Nikon</span>
+    <span class="badge">Verité</span>
+  </div>
+
+  <hr />
+
+  <h2>my projects</h2>
+
+  <ul>
+	<li><a href="https://thetaskos.web.app/" target="_blank">the taskos</a></li>
+	<li><a href="https://www.instagram.com/zamaz.jpg" target="_blank">zamaz</a></li>
+	<li><a href="https://mogiopendata.com.br/" target="_blank">mogi open data</a></li>
+	<li>paper shutter (soon)</li>
+	<li>FundoCamp (soon)</li>
+  </ul>
+
+</BaseLayout>

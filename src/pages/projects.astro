@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const projects = [
+  {
+    name: "Inventory Optimization (MRO)",
+    what: "Recomenda mínimos/máximos usando consumo histórico + lead time.",
+    stack: ["Python", "SQL", "BI"],
+    links: [
+      { label: "Repo", href: "https://github.com/SEUUSER/REPO" },
+    ],
+  },
+  {
+    name: "Financial automation",
+    what: "Fluxos para caixa / conciliação / emissão.",
+    stack: ["Python", "APIs"],
+    links: [],
+  },
+];
+---
+
+<BaseLayout title="Books · vz.notes" desc="Recommended books list">
+  <h1>Recommended (and Not Recommended) books</h1>
+  <p class="small">Not a big reader. But it might encourage me to read more - or someone else</p>
+
+  {projects.map(p => (
+    <div class="card">
+      <h3>{p.name}</h3>
+      <p class="small">{p.what}</p>
+      <div class="kv">
+        {p.stack.map(s => <span class="badge">{s}</span>)}
+      </div>
+      <p>
+        {p.links.length ? p.links.map((l, i) => (
+          <>
+            <a href={l.href} target="_blank" rel="noreferrer">{l.label}</a>
+            {i < p.links.length - 1 && <span class="small"> · </span>}
+          </>
+        )) : <span class="small">Links em breve.</span>}
+      </p>
+    </div>
+  ))}
+</BaseLayout>

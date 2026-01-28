@@ -1,0 +1,52 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const books = [
+  {
+    name: "Letters to a Young Poet",
+    amazon_link:
+      "https://www.amazon.com.br/Cartas-jovem-poeta-incluindo-cartas-ebook/dp/B0B5K2DF6M/ref=sr_1_2?__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2W7YJQBGJXG80&dib=eyJ2IjoiMSJ9.TD3uBfO8fF2fcEFaM-16a9wkcxki3NpaKbuiGsOJvJeQ8otpnfSJg3wStQWcml16V-f6umzPpnueGgyhYpECE4coC-Ua1T6L_Hi1CWwkXkJ5pn_bYMPrFWhO-7yKVHNVQGKi96DAsrlRc5D-ekgMYq8rho3K9yhtzc1OngV5kA8S1Np6tNlDMw89ZHOxIXWhxm9alaBa7ScOpbQSIGsN5UssHjtE4nSbZiiL5SFuC3E.CaJ0mI_9NJHoWLCehjg6DTeptrB_HD96Do9xymUXTZA&dib_tag=se&keywords=cartas+a+um+jovem+poeta&qid=1769561693&s=digital-text&sprefix=cartas+a+um+jovem+%2Cdigital-text%2C298&sr=1-2",
+    cover_url:
+      "https://livrarialoyola.fbitsstatic.net/img/p/cartas-a-um-jovem-poeta-incluindo-as-cartas-que-o-jovem-poeta-franz-x-kappus-enviou-a-rilke-217911/412655.jpg?w=800&h=800&v=no-change&qs=ignore",
+    time_spent_reading: "2 weeks",
+    score: "●●●●●",
+    language: "pt-br",
+    month_year: "jan/26",
+  },
+];
+---
+
+<BaseLayout title="Books · vz.notes" desc="Recommended books list">
+  <h1>Recommended (and Not Recommended) books</h1>
+  <p class="small">
+    Not a big reader. But it might encourage me to read more - or someone else
+  </p>
+
+  {
+    books.map((b) => (
+      <div class="book-card">
+        <div class="book-cover">
+          <img src={b.cover_url} alt="Book cover of {b.name}" />
+        </div>
+
+        <div class="book-info">
+          <h3>{b.name}</h3>
+
+          <p>
+            <strong>Score:</strong> {b.score} / 5
+          </p>
+          <p>
+            <strong>Read:</strong> {b.language} · {b.month_year}
+          </p>
+          <p class="small">
+            <strong>Time spent:</strong> {b.time_spent_reading}
+          </p>
+
+          <a class="btn" href={b.amazon_link} target="_blank" rel="noopener">
+            Buy on Amazon
+          </a>
+        </div>
+      </div>
+    ))
+  }
+</BaseLayout>

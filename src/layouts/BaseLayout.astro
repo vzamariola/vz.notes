@@ -1,0 +1,24 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Navbar.astro";
+
+const { title = "Portfolio", desc = "" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    {desc && <meta name="description" content={desc} />}
+  </head>
+  <body>
+    <div class="container">
+      <Nav />
+      <slot />
+      <hr />
+      <p class="small">© {new Date().getFullYear()} vz.notes</p>
+    </div>
+  </body>
+</html>

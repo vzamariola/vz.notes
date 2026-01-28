@@ -1,0 +1,23 @@
+---
+const here = Astro.url.pathname;
+const Link = (href: string, label: string) => ({
+  href, label, active: here === href
+});
+const links = [
+  Link("/", "Home"),
+  Link("/books", "Books"),
+  Link("/about", "About"),
+];
+---
+
+<nav class="nav">
+  <a class="brand" href="/">vz.notes</a>
+  {links.map(l => (
+    <a href={l.href} style={l.active ? "color: var(--fg); text-decoration:none; font-weight:700;" : ""}>
+      {l.label}
+    </a>
+  ))}
+  <span class="small">      /      </span>
+  <a href="https://github.com/vzamariola" target="_blank" rel="noreferrer">GitHub</a>
+  <a href="https://www.linkedin.com/in/vinicius-zamariola/" target="_blank" rel="noreferrer">LinkedIn</a>
+</nav>
